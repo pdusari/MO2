@@ -1,5 +1,57 @@
-<div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="component-title">
+				<h4>My Performance</h4>
+			</div>
+			<div class="table-container">
+				<table class = "table table-striped">
+				   <thead>
+				      <tr>
+				         <th>Name</th>
+				         <th>City</th>
+				         <th>Pincode</th>
+				      </tr>
+				   </thead>
 
-	<p>{{ tagline }}</p>
+				   <tbody>
+				      <tr>
+				         <td>Tanmay</td>
+				         <td>Bangalore</td>
+				         <td>560001</td>
+				      </tr>
+
+				      <tr>
+				         <td>Sachin</td>
+				         <td>Mumbai</td>
+				         <td>400003</td>
+				      </tr>
+
+				      <tr>
+				         <td>Uma</td>
+				         <td>Pune</td>
+				         <td>411027</td>
+				      </tr>
+				   </tbody>
+
+				</table>
+			</div>
+			<div class="graph-container">
+				<div class="component-title">
+					<h4>Goals to achieve</h4>
+				</div>
+				<div class="col-md-6 no-padding">
+					<nvd3 options="pvOptions" data="pvData" callback="callbackFunction()"></nvd3>
+				</div>
+				<div class="col-md-6 no-padding">
+					<nvd3 options="ovOptions" data="ovData" callback="callbackFunction()"></nvd3>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="component-title">
+				<h4>Team Performance Analysis</h4>
+			</div>
+		</div>
+	</div>
 </div>
