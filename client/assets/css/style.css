@@ -32,3 +32,21 @@
 .table{
 	margin-top: 5px;
 }
+.logo{
+    position: absolute;
+    height: 120px;
+    width: 200px;
+    bottom: -53px;
+}
+.menuItems{
+  margin-left: 200px;
+}
+.navbar-inverse .navbar-nav>li>a{
+  padding:15px 50px;
+}
+.navbar-inverse .navbar-nav>li>a.active{
+  color: white;
+}
+.placeHolder{
+  margin-top: 50px;
+}
