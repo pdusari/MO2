@@ -32,3 +32,11 @@
 .table{
 	margin-top: 5px;
 }
+.nvd3.nv-lineChart .nv-x.nv-axis line { stroke: none; fill: none; }
+.nvd3 .nv-axis path.domain {stroke: none;}
+.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point{
+	fill-opacity: 0.95!important;
+}
+.nv-pie-title{
+	font-size: 30px !important;
+}
