@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<base href="/">
@@ -8,44 +9,49 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css"/>
-	<link rel="stylesheet" href="assets/css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- custom styles -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 	<!-- JS -->
-	<script src="vendor/angular.min.js"></script>
-	<script src="vendor/angular-route.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.5/angular-route.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+	<script src="https://rawgit.com/krispo/angular-nvd3/v1.0.5/dist/angular-nvd3.js"></script>
+	<!-- ANGULAR CUSTOM -->
 
 	<!-- ANGULAR CUSTOM -->
+		<script src="appRoutes.js"></script>
+	<script src="app.js"></script>
 	<script src="public/home/MainCtrl.js"></script>
 	<script src="public/myteam/MyteamCtrl.js"></script>
 	<script src="public/reports/ReportCtrl.js"></script>
 
 
-	<script src="appRoutes.js"></script>
-	<script src="app.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
-    <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.5/dist/angular-nvd3.js"></script>
+
 </head>
+
 <body ng-app="sampleApp" ng-controller="MyTeamController">
-<div class="container">
+	<div class="container">
 
-	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-		<img class="navbar-brand logo" src="./assets/images/mo2Logo.gif" > </img>
-		</div>
-		<ul class="nav navbar-nav menuItems">
-			<li><a class="active" href="/">Home</a></li>
-			<li><a href="/myteam">My Team</a></li>
-			<li><a href="/reports">Reports</a></li>
-		</ul>
-	</nav>
+		<!-- HEADER -->
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<img class="navbar-brand logo" src="./assets/images/mo2Logo.gif"> </img>
+			</div>
+			<ul class="nav navbar-nav menuItems">
+				<li><a class="active" href="/">Home</a></li>
+				<li><a href="/myteam">My Team</a></li>
+				<li><a href="/reports">Reports</a></li>
+			</ul>
+		</nav>
 
-	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view class="placeHolder" ></div>
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ng-view class="placeHolder"></div>
 
-</div>
+	</div>
 </body>
+
 </html>
