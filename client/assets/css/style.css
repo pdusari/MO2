@@ -3,50 +3,97 @@
     background: linear-gradient(to right, #3e3e3e 0%, #4c4c4c 30%, #4c4c4c 70%, #3e3e3e 100%);
     background-color: #535353;
 }
-
 .navbar-collapse {
     margin-top: 16px;
 }
-
 .component-title {
     text-align: center;
-    border: 1.4px solid #ffe8a3;
-    border-radius: 10px
+
+    border-radius: 10px;
+    border: 1px #33CCCC solid;
+    line-height: 30px;
+    padding-left: 1%;
+    background: #33CCCC;
+    color: #fff !important;
+    border-radius: 4px;
+
 }
-.no-padding{
-  padding: 0;
+.no-padding {
+    padding: 0;
 }
 .nvd3.nv-pie path {
-	stroke-width: 0;
+    stroke-width: 0;
 }
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #ffe8a3;
 }
-.table>tbody>tr>td{
-	border: 0;
+.table>tbody>tr>td {
+    border: 0;
 }
-.table>thead>tr>th, .table>thead:first-child>tr:first-child>th{
-	border-bottom: 2px solid #ffc107;
-	border-top: 2px solid #ffc107;
+.table>thead>tr>th, .table>thead:first-child>tr:first-child>th {
+    border-bottom: 2px solid #ffc107;
+    border-top: 2px solid #ffc107;
 }
-.table{
-	margin-top: 5px;
+.table {
+    margin-top: 5px;
 }
-.logo{
+.logo {
     position: absolute;
     height: 120px;
     width: 200px;
     bottom: -53px;
 }
-.menuItems{
-  margin-left: 200px;
+.menuItems {
+    margin-left: 200px;
 }
-.navbar-inverse .navbar-nav>li>a{
-  padding:15px 50px;
+.navbar-inverse .navbar-nav>li>a {
+    padding: 15px 50px;
 }
-.navbar-inverse .navbar-nav>li>a.active{
-  color: white;
+.navbar-inverse .navbar-nav>li>a.active {
+    color: white;
 }
-.placeHolder{
-  margin-top: 50px;
+.placeHolder {
+    margin-top: 50px;
 }
+.squareBox {
+    float: left;
+    margin: 10px;
+    width: 130px;
+    height: 130px;
+    border: 1px solid #33CCCC;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.table-container {
+    margin: 30px;
+}
+.heading {
+    font-size: 2.75rem;
+
+    color: #333;
+}
+.sliderContainer{
+	margin:20px;
+}
+.slider{
+	margin-top:10px;
+}
+.icon{
+	margin:15px;
+}
+.calenderIcon{
+	color:#ee82ee;
+}
+.noOfLegsIcon{
+color:#808080;
+}
+.pvIcon{
+color:#85bb65;
+}
+.ovIcon{
+color:#008000;
+}
+.category{
+	padding-left:5px;
+	font-size:12px;
+	margin-top:10px; 
