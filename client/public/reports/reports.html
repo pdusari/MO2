@@ -1,9 +1,79 @@
-<div class="jumbotron text-center">
-	<h1>Geek City</h1>
-
-	<p>{{ tagline }}</p>
-	<div class="panel panel-default">
-    <div class="panel-heading">This Page is Disabled</div>
-    <div class="panel-body">This page is temporarily disabled by the site administrator for some reason.<br> <a href="#">Click here</a> to enable the page.</div>
-</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in List">
+						<td>{{item.ID}}</td>
+						<td>{{item.ENROLLER_ID}}</td>
+						<td>{{item.CALMONTH}}</td>
+						<td>{{item.NO_OF_ENROLLES}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div><button class="btn btn-default" type="submit" ng-click='viewfullList1()'>Button</button></div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td>@mdo</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td>@fat</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td>@twitter</td>
+					</tr>
+				</tbody>
+			</table>
+			<div><button class="btn btn-default" type="submit">Button</button></div>
+		</div>
+	</div>
+	<div class="row list" style="display:none">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in fullList">
+					<td>{{item.ID}}</td>
+					<td>{{item.ENROLLER_ID}}</td>
+					<td>{{item.CALMONTH}}</td>
+					<td>{{item.LENGTH}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div><button class="btn btn-default" type="submit">Button</button></div>
+	</div>
 </div>
