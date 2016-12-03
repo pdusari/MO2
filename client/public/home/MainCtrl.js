@@ -2,21 +2,32 @@
     'use strict';
 
     angular.module('MainCtrl', [])
-        .controller('MainController', homecontroller);
+        .controller('MainController', homecontroller).service('mo2Service', ['$http', function($http){
+		function getMyPerformance(){
+			return	$http.get("j3p_odata_dest/MO2/UI/uiservices/mo2service.xsodata/MyPerfInp(BA_IP='9543617',PERIOD_IP='201604')/MyPerfRes?$format=json");
+		}
+		function getMyGoal(){
+			return	$http.get("j3p_odata_dest/MO2/UI/uiservices/mo2service.xsodata/MyGoalInp(BA_IP='9543617',PERIOD_IP='201604')/MyGoalRes?$format=json");
+		}
+		return {
+			getMyPerformance: getMyPerformance,
+			getMyGoal: getMyGoal
+		};
+	}]);
 
 
-    function homecontroller($scope) {
+    function homecontroller($scope, $http, mo2Service) {
 
         $scope.pvOptions = {
             chart: {
                 type: 'pieChart',
                 title: "PV",
-                height: 400,
+                height: 250,
                 showLegend: false,
                 donut: true,
                 growOnHover: false,
                 tooltip: {
-                    enabled: false
+                    enabled: true
                 },
                 color: function(d, i) {
                     if (i === 0) {
@@ -48,7 +59,7 @@
             chart: {
                 type: 'pieChart',
                 title: "OV",
-                height: 400,
+                height: 250,
                 showLegend: false,
                 donut: true,
                 growOnHover: false,
@@ -270,16 +281,78 @@
             var maxValue = data[0].y + data[1].y;
             var minMaxContainer = $svg.select('.nv-pie').select('g');
             minMaxContainer.append('g')
-                .attr('transform', 'translate(40,200)')
+                .attr('transform', 'translate(40,130)')
                 .append('text').attr('class', 'minValue').style({
                     'font-size': '22px'
                 }).text('0');
             minMaxContainer.append('g')
-                .attr('transform', 'translate(175,200)')
+                .attr('transform', 'translate(165,130)')
                 .append('text').attr('class', 'maxValue').style({
                     'font-size': '22px'
                 }).text(maxValue);
         }
+        $scope.performanceData = [{
+            key: 'Data',
+            values:[{
+						"Week": "1",
+						"Revenue": "450000",
+						"Cost": "350000.00"
+					}, {
+						"Week": "2",
+						"Revenue": "400000",
+						"Cost": "390000.00"
+					}, {
+						"Week": "3",
+						"Revenue": "420000",
+						"Cost": "300000.00"
+					}, {
+						"Week": "4",
+						"Revenue": "440000",
+						"Cost": "320000.00"
+					}]
+        }];
+        $scope.legCount = 3;
+	    mo2Service.getMyPerformance().then(function(response){
+	    	$scope.performanceData = response.data.d.results[0];
+	    	var period = $scope.performanceData.PERIOD;
+	    	$scope.performanceData.OV = kFormatter($scope.performanceData.OV);
+	    	$scope.performanceData.PV = kFormatter($scope.performanceData.PV);
+	    	var date = new Date(period.substr(0,4) + "/" + period.substr(4,6));
+	    	$scope.performanceData.PERIOD = date;
+	    });
+	    mo2Service.getMyGoal().then(function(response){
+	    	$scope.myGoalJSONData = convertJSONObjectData(response.data.d.results, 'MIN_LEG');
+	    	$scope.pvData = getPVOVGraphData($scope.myGoalJSONData[$scope.legCount], 'PV');
+	    	$scope.ovData = getPVOVGraphData($scope.myGoalJSONData[$scope.legCount], 'OV');
+	    	console.log($scope.pvData);
+	    });
+	    function kFormatter(num) {
+			 return num > 999 ? (num/1000).toFixed(0) + 'K' : num;
+		}
+
+	    function convertJSONObjectData(result, key){
+	    	var obj = {};
+	    	for(var i=0; i<result.length; i++){
+	    		obj[result[i][key]] = result[i];
+	    	}
+	    	return obj;
+	    }
+	    function getPVOVGraphData(data, type){
+	    	var array = [];
+	    	array.push({
+	            key: "",
+	            y: data["CUR_"+type]
+	        });
+	        array.push({
+	            key: "",
+	            y: data["MIN_"+type]
+	        });
+	        return array;
+	    }
+	    $scope.updateGraphs = function(){
+	    	$scope.pvData = getPVOVGraphData($scope.myGoalJSONData[$scope.legCount], 'PV');
+	    	$scope.ovData = getPVOVGraphData($scope.myGoalJSONData[$scope.legCount], 'OV');
+	    };
     }
 })();
 var response = {

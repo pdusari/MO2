@@ -1,58 +1,68 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<div class="component-title">
-				<h4>My Performance</h4>
-			</div>
-			<div class="table-container">
-				<table class = "table table-striped">
-				   <thead>
-				      <tr>
-				         <th>Rank</th>
-				         <th>Gold</th>
-				      </tr>
-				   </thead>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="component-title">
+                <h4>My Performance</h4>
+            </div>
+            <div class="row">
+                <div class="table-container col-xs-12">
+                    <div class="squareBox">
+                      <i class="fa fa-calendar fa-2x icon calenderIcon"></i>
+                        <div class="col-xs-12 text-right heading">{{performanceData.PERIOD |date:'MMM,yyyy'}}</div>
+                         <div class="col-xs-12 category">Period</div>
+                    </div>
+                    <div class="squareBox">
+                       <i class="fa fa-calendar fa-2x icon"></i>
+                        <div class=" col-xs-12 text-right heading">{{performanceData.TITLE}}</div>
+                        <div class="col-xs-12 category">Rank</div>
+                    </div>
+                    <div class="squareBox">
+                        <i class="fa fa-calendar fa-2x icon "></i>
+                        <div class="col-xs-12 text-right heading ">{{performanceData.HIGHEST_RANK}}</div>
+                         <div class="col-xs-12 category">Highest Rank</div>
+                    </div>
+                    <div class="squareBox">
+                      <i class="fa fa-money fa-2x icon pvIcon"></i>
+                        <div class="col-xs-12 text-right heading">{{performanceData.PV}}</div>
+                          <div class="col-xs-12 category">PV</div>
+                    </div>
+                    <div class="squareBox">
+                       <i class="fa fa-usd fa-2x icon ovIcon"></i>
+                        <div class="col-xs-12 text-right heading">{{performanceData.OV}}</div>
+                          <div class="col-xs-12 category">OV</div>
+                    </div>
+                    <div class="squareBox">
+                     <i class="fa fa-users fa-2x icon noOfLegsIcon"></i>
+                        <div class="col-xs-12 text-right heading">{{performanceData.NO_OF_LEGS}}</div>
+                          <div class="col-xs-12 category">No.Of Legs</div>
+                    </div>
 
-				   <tbody>
-				      <tr>
-				         <td>Period</td>
-				         <td>Apr 16</td>
-				      </tr>
-
-				      <tr>
-				         <td>PV</td>
-				         <td>100</td>
-				      </tr>
-
-				      <tr>
-				         <td>OV</td>
-				         <td>500</td>
-				      </tr>
-				      <tr>
-				         <td>Qualified Leg</td>
-				         <td><i class="glyphicon glyphicon-user" aria-hidden="true"></i></td>
-				      </tr>
-				   </tbody>
-
-				</table>
-			</div>
+                </div>
+            </div>
 			<div class="graph-container">
-				<div class="component-title">
-					<h4>Goals to achieve</h4>
-				</div>
-				<div class="col-md-6 no-padding">
+                <div class="component-title">
+                    <h4>Goals to achieve</h4>
+                </div>
+                <div class="row col-xs-12 sliderContainer">
+                	<div class="col-xs-3 heading"> <span>Platinum</span></div>
+                	<div class="col-xs-6 slider"><input id="test" type="range" min="0" max="3" ng-model="legCount" ng-change="updateGraphs()"/></div>
+                </div>
+
+              	<div class="col-md-6 no-padding">
 					<nvd3 options="pvOptions" data="pvData" id="pvGraphId" on-ready="pvGraphChange()"></nvd3>
 				</div>
 				<div class="col-md-6 no-padding">
 					<nvd3 options="ovOptions" data="ovData" id="ovGraphId" on-ready="ovGraphChange()"></nvd3>
 				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-			<div class="component-title">
-				<h4>Team Performance Analysis</h4>
-			</div>
-			<label class="radio-inline">
+
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="component-title">
+                <h4>Team Performance Analysis</h4>
+            </div>
+            <label class="radio-inline">
 				<input type="radio" name="optradio" ng-model="performanceChartType" value="weekOVData">
 					Current v/s Previous Month's OV
 			</label>
@@ -63,10 +73,7 @@
 			<div class="graph-container">
 				<nvd3 options="performanceOptions" data="performanceData" class="with-3d-shadow with-transitions"></nvd3>
 			</div>
-			<!-- <div class="graph-container" ng-if="{{performanceChartType==='yearOVData'}}">
-				<nvd3 options="performanceOptions" data="performanceData" class="with-3d-shadow with-transitions"></nvd3>
-			</div> -->
 			<button ng-click="refresh()">Refresh</button>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
