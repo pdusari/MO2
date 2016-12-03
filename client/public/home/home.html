@@ -39,8 +39,7 @@
 
                 </div>
             </div>
-
-            <div class="graph-container">
+			<div class="graph-container">
                 <div class="component-title">
                     <h4>Goals to achieve</h4>
                 </div>
@@ -49,12 +48,12 @@
                 	<div class="col-xs-6 slider"><input id="test" type="range" min="0" max="3" ng-model="legCount" ng-change="updateGraphs()"/></div>
                 </div>
 
-              	 <div class="col-xs-6 no-padding">
-                    <nvd3 options="pvOptions" data="pvData" id="pvGraph"></nvd3>
-                </div>
-                <div class="col-xs-6 no-padding">
-                    <nvd3 options="ovOptions" data="ovData" id="ovGraph"></nvd3>
-                </div>
+              	<div class="col-md-6 no-padding">
+					<nvd3 options="pvOptions" data="pvData" id="pvGraphId" on-ready="pvGraphChange()"></nvd3>
+				</div>
+				<div class="col-md-6 no-padding">
+					<nvd3 options="ovOptions" data="ovData" id="ovGraphId" on-ready="ovGraphChange()"></nvd3>
+				</div>
 
 
             </div>
@@ -63,9 +62,18 @@
             <div class="component-title">
                 <h4>Team Performance Analysis</h4>
             </div>
-            <div class="graph-container">
-                <nvd3 options="performanceOptions" data="performanceData" class="with-3d-shadow with-transitions"></nvd3>
-            </div>
+            <label class="radio-inline">
+				<input type="radio" name="optradio" ng-model="performanceChartType" value="weekOVData">
+					Current v/s Previous Month's OV
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="optradio" ng-model="performanceChartType" value="yearOVData">
+					Year to Date OV
+			</label>
+			<div class="graph-container">
+				<nvd3 options="performanceOptions" data="performanceData" class="with-3d-shadow with-transitions"></nvd3>
+			</div>
+			<button ng-click="refresh()">Refresh</button>
         </div>
     </div>
 </div>

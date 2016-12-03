@@ -93,7 +93,18 @@ color:#85bb65;
 .ovIcon{
 color:#008000;
 }
+
 .category{
 	padding-left:5px;
 	font-size:12px;
 	margin-top:10px; 
+}
+
+.nvd3.nv-lineChart .nv-x.nv-axis line { stroke: none; fill: none; }
+.nvd3 .nv-axis path.domain {stroke: none;}
+.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point{
+	fill-opacity: 0.95!important;
+}
+.nv-pie-title{
+	font-size: 30px !important;
+}
