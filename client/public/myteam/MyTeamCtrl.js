@@ -2101,8 +2101,8 @@
       var domNode;
       var svgGroup;
       // size of the diagram
-      var viewerWidth = $(document).width();
-      var viewerHeight = $(document).height();
+      var viewerWidth = $('.container').width();
+      var viewerHeight = 500;
       var that = this;
       var tree = d3.layout.tree().size([viewerHeight, viewerWidth]);
       // define a d3 diagonal projection for use by the node paths later on.
