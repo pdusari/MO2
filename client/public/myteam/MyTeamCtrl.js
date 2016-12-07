@@ -2246,11 +2246,11 @@
       var baseSvg = d3.select("#tree-container").append("svg").attr("width", viewerWidth).attr("height", viewerHeight).attr("class", "overlay").call(zoomListener);
       var tip = d3.tip().attr('class', 'd3-tip').offset([-10, 0]).html(function(d) {
         var message = "<table>";
-        message += "<tr><td>Advocate ID :</strong></td><td>" + d.data.baid + "</td></tr>";
-        message += "<tr><td>Country :</strong></td><td>" + d.data.country + "</td></tr>";
-        message += "<tr><td>Rank :</strong></td><td>" + d.data.rank + "</td></tr>";
-        message += "<tr><td>PV :</strong></td><td>" + d.data.pv + "</td></tr>";
-        message += "<tr><td>OV :</strong></td><td>" + d.data.ov + "</td></tr>";
+        message += "<tr><td>Advoc ID :</td><td>" + d.data.baid + "</td></tr>";
+        message += "<tr><td>Country : </td><td>" + d.data.country + "</td></tr>";
+        message += "<tr><td>Rank :</td><td>" + d.data.rank + "</td></tr>";
+        message += "<tr><td>PV :</td><td>" + d.data.pv + "</td></tr>";
+        message += "<tr><td>OV :</td><td>" + d.data.ov + "</td></tr>";
         message += "</table>";
         return message;
       })
@@ -2377,16 +2377,6 @@
         else if(d._children) d._children.forEach(clearAll);
       }
 
-      function type(d) {
-        var message = "<table>";
-        message += "<tr><td>Advocate ID</strong></td><td>" + d.data.baid + "</td></tr>";
-        message += "<tr><td>Country</strong></td><td>" + d.data.country + "</td></tr>";
-        message += "<tr><td>Rank</strong></td><td>" + d.data.rank + "</td></tr>";
-        message += "<tr><td>PV</strong></td><td>" + d.data.pv + "</td></tr>";
-        message += "<tr><td>OV</strong></td><td>" + d.data.ov + "</td></tr>";
-        message += "</table>";
-        return message;
-      }
 
       function expand(d) {
         if(d._children) {
@@ -2602,19 +2592,6 @@
       select2Data = [];
       select2DataCollectName(root);
       select2DataObject = [];
-      select2Data.sort(function(a, b) {
-          if(a > b) return 1; // sort
-          if(a < b) return -1;
-          return 0;
-        }).filter(function(item, i, ar) {
-          return ar.indexOf(item) === i;
-        }) // remove duplicate items
-        .filter(function(item, i, ar) {
-          select2DataObject.push({
-            "id": i,
-            "text": item
-          });
-        });
       select2Data.sort(function(a, b) {
           if(a > b) return 1; // sort
           if(a < b) return -1;
